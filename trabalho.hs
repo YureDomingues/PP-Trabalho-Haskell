@@ -44,15 +44,14 @@ media [] = 0
 media lista = soma lista / tamanho lista
 
 {- FUNÇÃO PRODUTO LIMITES -}
-produto lista1 lista2 =
-    [inf1 * inf2, inf1 * sup2, inf2 * sup1, sup1 * sup2]
+
+produto lista1 lista2 = 
+    intervalo '[' (minimum [inf1*inf2, inf1*sup2, sup1*sup2]) (maximum [inf1*inf2, inf1*sup2, sup1*sup2]) ']'
   where
     inf1 = minimum lista1
     sup1 = maximum lista1
     inf2 = minimum lista2
     sup2 = maximum lista2
-
-limites lista1 lista2 = [minimum(produto lista1 lista2), maximum (produto lista1 lista2)]
 
 
 {- FUNÇÃO UNIÃO -}
@@ -68,7 +67,7 @@ juntar (cab:corpo) (cab2:corpo2)
 main = do
 -- Criando os intervalos
   let inter1 = intervalo '(' (-1) 3 ']'
-  let inter2 = intervalo '(' 1 5 ')'
+  let inter2 = intervalo '(' 7 10 ')'
   print inter1
   print inter2
 
@@ -86,7 +85,6 @@ main = do
 
 -- Produto dos limites
   print (produto inter1 inter2)
-  print (limites inter1 inter2)
 
 -- União das listas
   print (juntar inter1 inter2)
