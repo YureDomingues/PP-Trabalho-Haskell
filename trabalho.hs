@@ -53,6 +53,7 @@ produto lista1 lista2 =
     inf2 = minimum lista2
     sup2 = maximum lista2
 
+limites lista1 lista2 = [minimum(produto lista1 lista2), maximum (produto lista1 lista2)]
 
 {- FUNÇÃO UNIÃO -}
 juntar l [] = l
@@ -85,6 +86,7 @@ main = do
 
 -- Produto dos limites
   print (produto inter1 inter2)
+  print (limites inter1 inter2)
 
 -- União das listas
   print (juntar inter1 inter2)
